@@ -1,178 +1,30 @@
 {% load static %}
 
-<!-------- features categories -------->
-<div class="categories">
-    <div class="small-container">
-        <div class="row">
-            <div class="col-3">
-                <img src="{% static 'images/category-1.jpg' %}">
-            </div>
-            <div class="col-3">
-                <img src="{% static 'images/category-2.jpg' %}">
-            </div>
-            <div class="col-3">
-                <img src="{% static 'images/category-3.jpg' %}">
-            </div>
-        </div>
-    </div>
-</div>
-
-
 <!-------- features products -------->
 <div class="small-container">
     <h2 class="title">Featured products</h2>
     <div class="row">
-        <div class="col-4">
-            <a href="products details.html"><img src="{% static 'images/product-1.jpg' %}"></a>
-            <a href="products details.html">
-                <h4>Red Printed T-shirt</h4>
-            </a>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
+        {% for product in featured_products %}
+            <div class="col-4">
+                <a href="{% url 'product_details' product.id %}"><img src="{{ product.image.url }}"></a>
+                <a href="{% url 'product_details' product.id %}">
+                    <h4>{{ product.title }}</h4>
+                </a>
+                <p>${{ product.price }}</p>
             </div>
-            <p>$50.00</p>
-        </div>
-        <div class="col-4">
-            <img src="{% static 'images/product-2.jpg' %}">
-            <h4>HRX Men's Running Shoe</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$70.00</p>
-        </div>
-        <div class="col-4">
-            <img src="{% static 'images/product-3.jpg' %}">
-            <h4>Men's Slim Fit Track Pant</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$60.00</p>
-        </div>
-        <div class="col-4">
-            <img src="{% static 'images/product-4.jpg' %}">
-            <h4>Puma Men's T-shirt</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$60.00</p>
-        </div>
+        {% endfor %}
     </div>
 
     <h2 class="title">Latest products</h2>
     <div class="row">
-        <div class="col-4">
-            <img src="{% static 'images/product-5.jpg' %}">
-            <h4>Adidas Men's Modern Shoe</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$70.00</p>
-        </div>
-        <div class="col-4">
-            <img src="{% static 'images/product-6.jpg' %}">
-            <h4>Puma Men's T-shirt</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-o"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$60.00</p>
-        </div>
-        <div class="col-4">
-            <img src="{% static 'images/product-7.jpg' %}">
-            <h4>Combo socks for men</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$50.00</p>
-        </div>
-        <div class="col-4">
-            <img src="{% static 'images/product-8.jpg' %}">
-            <h4>Fossil black men's Watch</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$70.00</p>
-        </div>
-        <div class="row">
+        {% for product in latest_products %}
             <div class="col-4">
-                <img src="{% static 'images/product-9.jpg' %}">
-                <h4>Roadster black men's Watch</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$70.00</p>
+                <a href="{% url 'product_details' product.id %}"><img src="{{ product.image.url }}"></a>
+                <a href="{% url 'product_details' product.id %}">
+                    <h4>{{ product.title }}</h4>
+                </a>
+                <p>${{ product.price }}</p>
             </div>
-            <div class="col-4">
-                <img src="{% static 'images/product-10.jpg' %}">
-                <h4>SparX Black Shoe</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$70.00</p>
-            </div>
-            <div class="col-4">
-                <img src="{% static 'images/product-11.jpg' %}">
-                <h4>men's White Shoe</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$60.00</p>
-            </div>
-            <div class="col-4">
-                <img src="{% static 'images/product-12.jpg' %}">
-                <h4>Nike men's Regular T-Shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$60.00</p>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>
